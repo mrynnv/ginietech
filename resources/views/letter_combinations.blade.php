@@ -47,8 +47,8 @@
     <form action="/letter-combinations" method="POST" onsubmit="return validateDigits()">
         @csrf <!-- CSRF Protection -->
         <label for="digits">Enter digits:</label>
-        <input type="text" id="digits" name="digits" maxlength="10" required pattern="[0-9]+" title="Please enter only numbers">
-        <button type="submit">Generate Combinations</button>
+        <input type="text" id="digits" name="digits" maxlength="10" required pattern="[0-9]+" title="Please enter only numbers"> 
+        <button type="submit">Enter</button>
         <br>
     </form>
     </center>
@@ -63,14 +63,21 @@
         }
     </script>
     <br>
-    
     <div class="keypad">
         @for ($i = 1; $i <= 9; $i++)
-            <div class="key">{{ $i }}</div>
+            <div class="key" onclick="addNumber('{{ $i }}')">{{ $i }}</div>
         @endfor
-        <div class="key">*</div>
-        <div class="key">0</div>
-        <div class="key">#</div>
+        <div class="key" onclick="addNumber('*')"> *</div>
+        <div class="key" onclick="addNumber('0')"> 0</div>
+        <div class="key" onclick="addNumber('#')"> #</div>
     </div>
+
+    <script>
+        function addNumber(number) {
+            var phoneNumberField = document.getElementById('digits');
+            phoneNumberField.value += number;
+        }
+    </script>
+ 
 </body>
 </html>
