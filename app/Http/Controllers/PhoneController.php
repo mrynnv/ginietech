@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View; // Import View facade
+use Illuminate\Support\Facades\View; 
 
 class PhoneController extends Controller
 {
@@ -33,17 +33,12 @@ class PhoneController extends Controller
         $this->generateCombinations($digits, 0, '', $result, $digitMapping);
         sort($result);
 
-        //  HTML content for the response
         $html = '<p>Input Number: ' . $input . '</p>';
-        // $html .= '<ul>';
         $count =  0;
         foreach ($result as $combination) {
             $count+=1;
             $html .= '<li>'  . $count. ' = ' . $combination . '</li>';
         }
-        // $html .= '</ul>';
-
-        // Pass the HTML content to the view and render it
         return view('letter_combinations', ['html' => $html]);
 
 
