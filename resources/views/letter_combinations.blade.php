@@ -30,6 +30,7 @@
         }
     </style>
 <body>
+
     <center>
     <h1>Letter Combinations</h1>
 
@@ -78,6 +79,15 @@
             phoneNumberField.value += number;
         }
     </script>
+
+
  
 </body>
+
+<body>
+    <center>
+    {!! $html !!}
+    </center>
+</body>
+
 </html>
